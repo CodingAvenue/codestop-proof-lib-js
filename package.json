@@ -1,0 +1,28 @@
+{
+  "name": "codestop-proof-lib-js",
+  "version": "1.0.0",
+  "description": "## Usage",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingAvenue/codestop-proof-lib-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodingAvenue/codestop-proof-lib-js/issues"
+  },
+  "homepage": "https://github.com/CodingAvenue/codestop-proof-lib-js#readme",
+  "dependencies": {
+    "@types/esprima": "^4.0.2",
+    "@types/lodash": "^4.14.120",
+    "@types/node": "^10.12.24",
+    "esprima": "^4.0.1",
+    "lodash": "^4.17.11",
+    "typescript": "^3.3.3"
+  }
+}
