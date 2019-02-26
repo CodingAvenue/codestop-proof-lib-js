@@ -73,4 +73,8 @@ export default class Nodes {
             return new Nodes([this.parsedCode[index]]);
         }
     }
+
+    count(): number {
+    	return this.parsedCode.length + 1
+    }
 }

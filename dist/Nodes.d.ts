@@ -5,4 +5,5 @@ export default class Nodes {
     parseSelector(selector: string): any;
     getSubNode(subNode: string, isEmpty?: boolean): Nodes;
     getSubIndex(index: number): Nodes;
+    count(): number;
 }

@@ -67,5 +67,8 @@ class Nodes {
             return new Nodes([this.parsedCode[index]]);
         }
     }
+    count() {
+        return this.parsedCode.length + 1;
+    }
 }
 exports.default = Nodes;

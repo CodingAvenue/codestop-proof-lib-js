@@ -8,8 +8,7 @@
     },
     "exclude": [
         "node_modules",
-	"code.js",
-	"src/test.ts"
+	"code.js"
     ],
     "include": [
         "src/**/*"
