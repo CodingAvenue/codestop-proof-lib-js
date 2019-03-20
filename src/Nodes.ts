@@ -75,6 +75,6 @@ export default class Nodes {
     }
 
     count(): number {
-    	return this.parsedCode.length + 1
+    	return this.parsedCode.length
     }
 }

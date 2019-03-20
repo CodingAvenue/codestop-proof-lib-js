@@ -68,7 +68,7 @@ class Nodes {
         }
     }
     count() {
-        return this.parsedCode.length + 1;
+        return this.parsedCode.length;
     }
 }
 exports.default = Nodes;
