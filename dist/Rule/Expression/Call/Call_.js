@@ -8,12 +8,19 @@ class Call_ extends Rule_1.default {
             if (node['type'] == 'ExpressionStatement') {
                 node = node['expression'];
             }
-            if (node['callee']['type'] && node['callee']['type'] == 'MemberExpression') {
+            if (node['callee'] && node['callee']['type'] && node['callee']['type'] == 'MemberExpression') {
                 return ((node['type'] == 'CallExpression'
                     && node['callee']['object']['name'] == filters['name'])
                     &&
                         filters['property']
                     ? node['callee']['property']['name'] == filters['property']
+                    : true);
+            }
+            else if (node['type'] == 'MemberExpression') {
+                return (node['object']['name'] == filters['name']
+                    &&
+                        filters['property']
+                    ? node['property']['name'] == filters['property']
                     : true);
             }
             else {
