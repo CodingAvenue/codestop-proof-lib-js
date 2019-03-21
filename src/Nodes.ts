@@ -36,7 +36,7 @@ export default class Nodes {
             for (let i = 0; i < this.parsedCode.length; i++) {
                 const node = this.parsedCode[i];
 
-                if (_.has(node, subNode) && node[subNode] instanceof Array) {
+                if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {
                     if (subNode == 'declarations' || subNode == 'body' || subNode == 'cases') {
                         nodes = [...nodes, ...node[subNode]];
                     } else {
@@ -46,7 +46,7 @@ export default class Nodes {
                             nodes.push(node[subNode]);
                         }
                     }
-                } else if (_.has(node, 'expression') && _.has(node['expression'], subNode) && node['expression'][subNode] instanceof Array) {
+                } else if (_.has(node, 'expression') && _.has(node['expression'], subNode) && (node['expression'][subNode] instanceof Array || node['expression'][subNode] instanceof Object)) {
                     if (subNode == 'arguments') {
                         nodes = [...nodes, ...node['expression'][subNode]];
                     } else {
