@@ -1,3 +1,2 @@
-import * as esprima from 'esprima';
-declare const _default: (codeFile: string) => Promise<esprima.Program>;
+declare const _default: (codeFile: string) => Promise<any>;
 export default _default;

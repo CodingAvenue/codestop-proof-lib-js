@@ -14,7 +14,9 @@ export default async (codeFile: string) => {
             throw new Error("code file is empty")
         }
 
-        return esprima.parseScript(content);
+        const parsed = esprima.parseScript(content);
+        return JSON.parse(JSON.stringify(parsed));
+        
     } catch(e) {
         throw e;
     }

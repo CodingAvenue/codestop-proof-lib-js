@@ -21,17 +21,14 @@ class Nodes {
         return transformer.transform();
     }
     getSubNode(subNode, isEmpty = false) {
-        if (_.includes(this.parsedCode, subNode)) {
-            console.log("Inside if");
+        if (_.has(this.parsedCode, subNode)) {
             return new Nodes([this.parsedCode[subNode]]);
         }
         else {
-            console.log("inside else");
             let nodes = [];
             for (let i = 0; i < this.parsedCode.length; i++) {
                 const node = this.parsedCode[i];
-                console.log(node);
-                if (_.includes(node, subNode) && node[subNode] instanceof Array) {
+                if (_.has(node, subNode) && node[subNode] instanceof Array) {
                     if (subNode == 'declarations' || subNode == 'body' || subNode == 'cases') {
                         nodes = [...nodes, ...node[subNode]];
                     }
@@ -44,7 +41,7 @@ class Nodes {
                         }
                     }
                 }
-                else if (_.includes(node, 'expression') && _.includes(node['expression'], subNode) && node['expression'][subNode] instanceof Array) {
+                else if (_.has(node, 'expression') && _.has(node['expression'], subNode) && node['expression'][subNode] instanceof Array) {
                     if (subNode == 'arguments') {
                         nodes = [...nodes, ...node['expression'][subNode]];
                     }

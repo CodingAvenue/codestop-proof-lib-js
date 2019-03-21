@@ -20,7 +20,8 @@ exports.default = (codeFile) => __awaiter(this, void 0, void 0, function* () {
         if (!content) {
             throw new Error("code file is empty");
         }
-        return esprima.parseScript(content);
+        const parsed = esprima.parseScript(content);
+        return JSON.parse(JSON.stringify(parsed));
     }
     catch (e) {
         throw e;
