@@ -49,6 +49,19 @@ class Nodes {
                         nodes.push(node['expression'][subNode]);
                     }
                 }
+                else if (_.has(node, 'object') && _.has(node['object'], subNode) && (node['object'][subNode] instanceof Array || node['object'][subNode] instanceof Object)) {
+                    if (subNode == 'arguments') {
+                        nodes = [...nodes, ...node['object'][subNode]];
+                    }
+                    else {
+                        nodes.push(node['object'][subNode]);
+                    }
+                }
+                else if (_.has(node, 'type') && node['type'] == 'MemberExpression' && _.has(node, 'property') && (node['property'] instanceof Array || node['property'] instanceof Object)) {
+                    if (subNode == 'identifier' && node['property']['type'] == 'Identifier') {
+                        nodes.push(node['property']);
+                    }
+                }
             }
             return new Nodes(nodes);
         }
