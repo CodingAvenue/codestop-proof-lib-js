@@ -13,6 +13,7 @@ class FilterFactory {
     static getFilters() {
         return {
             'call-expression': FilterClasses.CallExpression,
+            'member-expression': FilterClasses.MemberExpression,
             'binary-expression': FilterClasses.BinaryExpression,
             'assignment-expression': FilterClasses.AssignmentExpression,
             'update-expression': FilterClasses.UpdateExpression,

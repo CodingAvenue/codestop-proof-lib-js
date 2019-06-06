@@ -28,6 +28,11 @@ class Nodes {
             let nodes = [];
             for (let i = 0; i < this.parsedCode.length; i++) {
                 const node = this.parsedCode[i];
+                if (subNode == 'MemberCall') { // getting to the inner property call e.g foo.bar.baz() this will give us the foo.bar node.
+                    if (_.has(node, 'expression') && _.has(node['expression'], 'callee') && node['expression']['callee']['type'] == 'MemberExpression' && _.has(node['expression']['callee']['object'], 'type')) {
+                        nodes.push(node['expression']['callee']['object']);
+                    }
+                }
                 if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {
                     if (subNode == 'declarations' || subNode == 'body' || subNode == 'cases') {
                         nodes = [...nodes, ...node[subNode]];

@@ -17,6 +17,7 @@ export default class RuleFactory {
         return {
             'console'               : RuleClasses.Console,
             'call_'                 : RuleClasses.Call_,
+            'member-call'           : RuleClasses.MemberCall,
             'variable-declaration'  : RuleClasses.VariableDeclaration,
             'identifier'            : RuleClasses.Identifier,
             'literal'               : RuleClasses.Literal,

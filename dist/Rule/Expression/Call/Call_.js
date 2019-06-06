@@ -8,26 +8,29 @@ class Call_ extends Rule_1.default {
             if (node['type'] == 'ExpressionStatement') {
                 node = node['expression'];
             }
-            if (node['callee'] && node['callee']['type'] && node['callee']['type'] == 'MemberExpression') {
-                return ((node['type'] == 'CallExpression'
-                    && node['callee']['object']['name'] == filters['name'])
-                    &&
-                        filters['property']
-                    ? node['callee']['property']['name'] == filters['property']
-                    : true);
+            if (node['type'] != 'CallExpression') {
+                return false;
             }
-            else if (node['type'] == 'MemberExpression') {
-                return (node['object']['name'] == filters['name']
-                    &&
-                        filters['property']
-                    ? node['property']['name'] == filters['property']
-                    : true);
-            }
-            else {
-                return (node['type'] == 'Callexpression'
-                    && (filters['name']
-                        ? filters['name'] == node['callee']['name']
-                        : true));
+            if (node['type'] == 'CallExpression') {
+                if (node['callee']['type'] == 'Identifier') { // function call e.g. log('test');
+                    return ((filters['name']
+                        ? node['callee']['name'] == filters['name']
+                        : true)
+                        &&
+                            ( // for direct function call, it doesn't have a property.
+                            filters['property']
+                                ? false
+                                : true));
+                }
+                else if (node['callee']['type'] == 'MemberExpression') { // Method calls e.g. console.log('test');
+                    return ((filters['name']
+                        ? node['callee']['object']['name'] == filters['name']
+                        : true)
+                        &&
+                            (filters['property']
+                                ? node['callee']['property']['name'] == filters['property']
+                                : true));
+                }
             }
         };
     }

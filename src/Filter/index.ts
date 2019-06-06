@@ -4,6 +4,7 @@ import AssignmentExpression from './AssignmentExpression';
 import BinaryExpression from './BinaryExpression';
 import BreakStatement from './BreakStatement';
 import CallExpression from './CallExpression';
+import MemberExpression from './MemberExpression';
 import ContinueStatement from './ContinueStatement';
 import ForStatement from './ForStatement';
 import FunctionDeclaration from './FunctionDeclaration';
@@ -26,6 +27,7 @@ export {
     BinaryExpression,
     BreakStatement,
     CallExpression,
+    MemberExpression,
     ContinueStatement,
     ForStatement,
     FunctionDeclaration,

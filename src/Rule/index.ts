@@ -14,6 +14,7 @@ import Decrement_ from './Expression/Decrement_';
 import Increment_ from './Expression/Increment_';
 import UnaryExpression from './Expression/UnaryExpression';
 import Call_ from './Expression/Call/Call_';
+import MemberCall from './Expression/Call/MemberCall';
 import Console from './Expression/Call/Console';
 import ArrowFunction from './Function_/ArrowFunction';
 import FunctionDeclaration from './Function_/FunctionDeclaration';
@@ -47,6 +48,7 @@ export {
     Increment_,
     UnaryExpression,
     Call_,
+    MemberCall,
     Console,
     ArrowFunction,
     FunctionDeclaration,
