@@ -40,6 +40,9 @@ export default class Nodes {
                     if (_.has(node, 'expression') && _.has(node['expression'], 'callee') && node['expression']['callee']['type'] == 'MemberExpression' && _.has(node['expression']['callee']['object'], 'type')) {
                         nodes.push(node['expression']['callee']['object']);
                     }
+                    else if (node['type'] == 'MemberExpression' && _.has(node, 'object') && _.has(node['object'], 'callee') && node['object']['callee']['type'] == 'MemberExpression') {
+                        nodes.push(node['object']);
+                    }
                 }
 
                 if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {
