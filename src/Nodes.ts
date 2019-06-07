@@ -43,6 +43,9 @@ export default class Nodes {
                     else if (node['type'] == 'MemberExpression' && _.has(node, 'object') && _.has(node['object'], 'callee') && node['object']['callee']['type'] == 'MemberExpression') {
                         nodes.push(node['object']);
                     }
+                    else if (node['type'] == 'CallExpression' && _.has(node, 'callee') && node['callee']['type'] == 'MemberExpression' && _.has(node['callee'], 'object') && node['callee']['object']['type'] == 'CallExpression') {
+                        nodes.push(node['callee']['object']);
+                    }
                 }
 
                 if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {

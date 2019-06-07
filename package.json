@@ -1,6 +1,6 @@
 {
   "name": "codestop-js-proof",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "## Usage",
   "main": "dist/index.js",
   "scripts": {
