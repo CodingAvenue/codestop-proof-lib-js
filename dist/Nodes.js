@@ -38,6 +38,9 @@ class Nodes {
                     else if (node['type'] == 'CallExpression' && _.has(node, 'callee') && node['callee']['type'] == 'MemberExpression' && _.has(node['callee'], 'object') && node['callee']['object']['type'] == 'CallExpression') {
                         nodes.push(node['callee']['object']);
                     }
+                    else if (node['type'] == 'MemberExpression' && _.has(node, 'object') && node['object']['type'] == 'MemberExpression') {
+                        nodes.push(node['object']);
+                    }
                 }
                 if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {
                     if (subNode == 'declarations' || subNode == 'body' || subNode == 'cases') {

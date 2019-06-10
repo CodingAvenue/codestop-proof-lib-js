@@ -14,6 +14,10 @@ class MemberCall extends Rule_1.default {
                 &&
                     (filters && filters['property']
                         ? node['property']['name'] == filters['property']
+                        : true)
+                &&
+                    (filters && filters['value']
+                        ? node['property']['type'] == 'Literal' && node['property']['value'] == filters['value']
                         : true));
         };
     }

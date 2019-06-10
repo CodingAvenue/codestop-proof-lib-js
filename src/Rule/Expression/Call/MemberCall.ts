@@ -21,6 +21,12 @@ export default class MemberCall extends Rule {
                         ? node['property']['name'] == filters['property']
                         : true
                 )
+                &&
+                (
+                    filters && filters['value']
+                        ? node['property']['type'] == 'Literal' && node['property']['value'] == filters['value']
+                        : true
+                )
             )
         }
     }
