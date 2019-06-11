@@ -6,11 +6,13 @@ export default class FunctionDeclaration extends Rule {
 
         return (node: any): boolean => {
             return (
-                node['type'] == 'FunctionDeclaration'
+                node['type'] === 'FunctionDeclaration'
                 &&
-                    filters['name']
+                (
+                    filters && filters['name']
                         ? node['id']['name'] == filters['name']
                         : true
+                )
             );
         };
     }

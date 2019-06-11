@@ -52,8 +52,10 @@ export default class Nodes {
                 }
 
                 if (_.has(node, subNode) && (node[subNode] instanceof Array || node[subNode] instanceof Object)) {
-                    if (subNode == 'declarations' || subNode == 'body' || subNode == 'cases') {
+                    if (subNode == 'declarations' || subNode == 'cases') {
                         nodes = [...nodes, ...node[subNode]];
+                    } else if (subNode == 'body') {
+                        nodes = [...nodes, ...node[subNode][subNode]];
                     } else {
                         if (subNode == 'arguments' || subNode == 'params') {
                             nodes = [...nodes, ...node[subNode]];

@@ -5,11 +5,11 @@ class FunctionDeclaration extends Rule_1.default {
     getRule() {
         const filters = this.filters;
         return (node) => {
-            return (node['type'] == 'FunctionDeclaration'
+            return (node['type'] === 'FunctionDeclaration'
                 &&
-                    filters['name']
-                ? node['id']['name'] == filters['name']
-                : true);
+                    (filters && filters['name']
+                        ? node['id']['name'] == filters['name']
+                        : true));
         };
     }
     allowedOptionalFilter() {
