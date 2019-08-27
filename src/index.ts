@@ -1,12 +1,27 @@
-import codeParser from './Parser/Code';
+import * as parser from './Parser/Code';
 import Nodes from './Nodes';
 
-export default async (codeFile: string) => {
+const parseFile = async (codeFile: string) => {
     try {
-        const parsed = await codeParser(codeFile);
-        return new Nodes(parsed);
+	const parsed = await parser.parseFile(codeFile);
+	return new Nodes(parsed);
     } catch (e) {
-        throw e;
+	throw e;
     }
-};
+}
+
+const parseString = async (content: string) => {
+    try {
+	const parsed = await parser.parseString(content);
+	return new Nodes(parsed);
+    } catch (e) {
+	throw e;
+    }
+   
+}
+
+export {
+    parseFile,
+    parseString
+}
 

@@ -13,10 +13,18 @@ const fs = require("fs");
 const util_1 = require("util");
 const accessFile = util_1.promisify(fs.access);
 const readFile = util_1.promisify(fs.readFile);
-exports.default = (codeFile) => __awaiter(this, void 0, void 0, function* () {
+const parseFile = (codeFile) => __awaiter(this, void 0, void 0, function* () {
     try {
         yield accessFile(codeFile);
-        const content = yield readFile(codeFile, 'utf-8');
+        return parseString(yield readFile(codeFile, 'utf-8'));
+    }
+    catch (e) {
+        throw e;
+    }
+});
+exports.parseFile = parseFile;
+const parseString = (content) => __awaiter(this, void 0, void 0, function* () {
+    try {
         if (!content) {
             throw new Error("code file is empty");
         }
@@ -27,3 +35,4 @@ exports.default = (codeFile) => __awaiter(this, void 0, void 0, function* () {
         throw e;
     }
 });
+exports.parseString = parseString;

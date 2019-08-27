@@ -1,3 +1,4 @@
 import Nodes from './Nodes';
-declare const _default: (codeFile: string) => Promise<Nodes>;
-export default _default;
+declare const parseFile: (codeFile: string) => Promise<Nodes>;
+declare const parseString: (content: string) => Promise<Nodes>;
+export { parseFile, parseString };

@@ -8,14 +8,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Code_1 = require("./Parser/Code");
+const parser = require("./Parser/Code");
 const Nodes_1 = require("./Nodes");
-exports.default = (codeFile) => __awaiter(this, void 0, void 0, function* () {
+const parseFile = (codeFile) => __awaiter(this, void 0, void 0, function* () {
     try {
-        const parsed = yield Code_1.default(codeFile);
+        const parsed = yield parser.parseFile(codeFile);
         return new Nodes_1.default(parsed);
     }
     catch (e) {
         throw e;
     }
 });
+exports.parseFile = parseFile;
+const parseString = (content) => __awaiter(this, void 0, void 0, function* () {
+    try {
+        const parsed = yield parser.parseString(content);
+        return new Nodes_1.default(parsed);
+    }
+    catch (e) {
+        throw e;
+    }
+});
+exports.parseString = parseString;
